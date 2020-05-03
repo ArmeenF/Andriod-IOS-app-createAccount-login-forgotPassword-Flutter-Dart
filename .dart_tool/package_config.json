@@ -68,10 +68,28 @@
       "languageVersion": "1.19"
     },
     {
+      "name": "flutter_svg",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.13.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.2"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
     },
     {
       "name": "image",
@@ -96,6 +114,18 @@
       "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.4",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
     },
     {
       "name": "pedantic",
@@ -164,6 +194,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "undraw",
+      "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/undraw-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/miladsmacbook/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.0.8",
       "packageUri": "lib/",
@@ -182,7 +218,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-05-02T19:35:20.497768Z",
+  "generated": "2020-05-03T04:28:39.011185Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }
