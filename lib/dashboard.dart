@@ -17,7 +17,7 @@ class _DashboardState extends State<Dashboard> {
       borderRadius: BorderRadius.circular(24.0),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -47,10 +47,10 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       body: StaggeredGridView.count(
-        crossAxisCount: 1,
-        crossAxisSpacing: 12.0,
+        crossAxisCount: 3,
+        crossAxisSpacing: 10.0,
         mainAxisSpacing: 12.0,
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
         children: <Widget>[
           ChallengeCategories(Icons.graphic_eq, "Health", 0xff622F74),
           ChallengeCategories(Icons.graphic_eq, "Educational", 0xff622F74),
@@ -60,12 +60,12 @@ class _DashboardState extends State<Dashboard> {
           ChallengeCategories(Icons.graphic_eq, "Social", 0xff622F74),
         ],
         staggeredTiles: [
-          StaggeredTile.extent(2, 130),
-          StaggeredTile.extent(2, 130),
-          StaggeredTile.extent(2, 130),
-          StaggeredTile.extent(2, 130),
-          StaggeredTile.extent(2, 130),
-          StaggeredTile.extent(2, 130),
+          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(1, 100),
         ],
       ),
     );
