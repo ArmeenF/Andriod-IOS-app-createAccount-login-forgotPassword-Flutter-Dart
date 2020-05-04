@@ -1,0 +1,4 @@
+#Sun May 03 17:48:13 PDT 2020
+base.0=/Users/miladsmacbook/Development/Projects/DailyChallengeApp/DailyChallangeApp/DailyChallangeApp/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

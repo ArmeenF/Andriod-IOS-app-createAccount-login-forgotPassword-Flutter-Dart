@@ -42,30 +42,26 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Daily Challenges Stats',
+          'Daily Challenges Dashboard',
           style: TextStyle(color: Colors.black),
         ),
       ),
       body: StaggeredGridView.count(
         crossAxisCount: 3,
         crossAxisSpacing: 10.0,
-        mainAxisSpacing: 12.0,
-        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
+        mainAxisSpacing: 10.0,
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         children: <Widget>[
-          ChallengeCategories(Icons.graphic_eq, "Health", 0xff622F74),
-          ChallengeCategories(Icons.graphic_eq, "Educational", 0xff622F74),
-          ChallengeCategories(Icons.graphic_eq, "Dietary", 0xff622F74),
-          ChallengeCategories(Icons.graphic_eq, "Mental", 0xff622F74),
-          ChallengeCategories(Icons.graphic_eq, "General", 0xff622F74),
-          ChallengeCategories(Icons.graphic_eq, "Social", 0xff622F74),
+          ChallengeCategories(Icons.graphic_eq, "Categories", 0xff622F74),
+          ChallengeCategories(Icons.graphic_eq, "Statistics", 0xff622F74),
+          ChallengeCategories(Icons.graphic_eq, "Activity", 0xff622F74),
+          ChallengeCategories(Icons.graphic_eq, "Settings", 0xff622F74),
         ],
         staggeredTiles: [
-          StaggeredTile.extent(1, 100),
-          StaggeredTile.extent(1, 100),
-          StaggeredTile.extent(1, 100),
-          StaggeredTile.extent(1, 100),
-          StaggeredTile.extent(1, 100),
-          StaggeredTile.extent(1, 100),
+          StaggeredTile.extent(3, 100.0),
+          StaggeredTile.extent(1, 100.0),
+          StaggeredTile.extent(1, 100.0),
+          StaggeredTile.extent(1, 100.0),
         ],
       ),
     );
