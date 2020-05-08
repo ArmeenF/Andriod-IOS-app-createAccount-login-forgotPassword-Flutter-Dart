@@ -39,3 +39,5 @@ lib/generated_plugin_registrant.dart
 
 *google-services.json
 *GoogleService-Info.plist
+ios/Runner.xcodeproj/project.pbxproj
+ios/Flutter/.last_build_id
