@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thedailychallenge/services/auth.dart';
+import 'package:thedailychallenge/shared/constants.dart';
+import 'package:thedailychallenge/shared/loading.dart';
 
 class Register extends StatefulWidget {
 
@@ -14,6 +16,7 @@ class _registerState extends State<Register> {
 
    final AuthService _auth = AuthService();
    final _formKey = GlobalKey<FormState>();
+   bool loading = false;
 
   //text field state
   String email = '';
@@ -23,12 +26,12 @@ class _registerState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
      backgroundColor: Colors.purple[200],
       appBar: AppBar(
         backgroundColor: Colors.purple[800],
         elevation: 0.0,
-        title: Text('Sign up to The Daily Challenge App'),
+        title: Text('Sign up'),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -48,17 +51,7 @@ class _registerState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'email',
-                  fillColor: Colors.white,
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2.0)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 2.0)
-                    ),
-                ),
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val)
                 {
@@ -67,6 +60,7 @@ class _registerState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 obscureText: true,
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
                 onChanged: (val)
@@ -85,10 +79,14 @@ class _registerState extends State<Register> {
                 {
                   if(_formKey.currentState.validate())
                   {
+                    setState(() => loading = true);
                     dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                     if(result == null)
                     {
-                      setState(() => error = 'please supply a valid email');
+                      setState(() {
+                         error = 'please supply a valid email';
+                         loading = false;
+                      });
                     }
                   }
                 }
