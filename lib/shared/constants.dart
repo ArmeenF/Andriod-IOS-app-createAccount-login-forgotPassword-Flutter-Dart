@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
-  hintText: 'email',
   fillColor: Colors.white,
   filled: true,
   enabledBorder: OutlineInputBorder(

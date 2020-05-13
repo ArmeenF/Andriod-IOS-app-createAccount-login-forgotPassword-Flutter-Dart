@@ -4,17 +4,14 @@ import 'package:thedailychallenge/shared/constants.dart';
 import 'package:thedailychallenge/shared/loading.dart';
 
 class SignIn extends StatefulWidget {
-
   final Function toggleView;
   SignIn({this.toggleView});
-
 
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
-
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
@@ -23,7 +20,7 @@ class _SignInState extends State<SignIn> {
   String email = '';
   String password = '';
   String error = '';
-  
+
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
@@ -97,9 +94,8 @@ class _SignInState extends State<SignIn> {
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
               ),
             ],
+
           ),
-        ),
-      )
-    );
+        ));
   }
 }
