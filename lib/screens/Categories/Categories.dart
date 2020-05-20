@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Facebook extends StatelessWidget {
+class categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[200],
-        title: Text("Facebook Page"),
+        title: Text("Categories"),
       ),
       body: Center(
         child: RaisedButton(
@@ -14,7 +14,7 @@ class Facebook extends StatelessWidget {
             Navigator.pop(context);
             // Navigate back to login page
           },
-          child: Text('Go back!'),
+          child: Text('Go back To Dashboard!'),
         ),
       ),
     );
