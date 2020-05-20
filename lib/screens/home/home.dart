@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             title: Text('Dashboard'),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.purple[800],
             actions: <Widget>[
               FlatButton.icon(
                   icon: Icon(Icons.person),

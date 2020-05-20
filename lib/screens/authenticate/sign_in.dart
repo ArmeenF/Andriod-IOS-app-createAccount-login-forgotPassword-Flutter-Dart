@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thedailychallenge/services/auth.dart';
 import 'package:thedailychallenge/shared/constants.dart';
 import 'package:thedailychallenge/shared/loading.dart';
+import 'package:thedailychallenge/screens/authenticate/facebook.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -41,62 +42,70 @@ class _SignInState extends State<SignIn> {
               ],
             ),
             body: Container(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 20.0),
-                      TextFormField(
-                          decoration:
-                              textInputDecoration.copyWith(hintText: 'Email'),
-                          validator: (val) =>
-                              val.isEmpty ? 'Enter an email' : null,
-                          onChanged: (val) {
-                            setState(() => email = val);
-                          }),
-                      SizedBox(height: 20.0),
-                      TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              hintText: 'Password'),
-                          obscureText: true,
-                          validator: (val) => val.length < 6
-                              ? 'Enter a password 6+ chars long'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => password = val);
-                          }),
-                      SizedBox(height: 20.0),
-                      RaisedButton(
-                          color: Colors.blue[400],
-                          child: Text(
-                            'sign in',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onPressed: () async {
-                            if (_formKey.currentState.validate()) {
-                              setState(() => loading = true);
-                              dynamic result = await _auth
-                                  .signInWithEmailAndPassword(email, password);
-                              if (result == null) {
-                                setState(() {
-                                  error =
-                                      'COULD NOT SIGN IN WITH THOSE CREDENTIALS';
-                                  loading = false;
-                                });
-                              }
+              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                        decoration:
+                            textInputDecoration.copyWith(hintText: 'Email'),
+                        validator: (val) =>
+                            val.isEmpty ? 'Enter an email' : null,
+                        onChanged: (val) {
+                          setState(() => email = val);
+                        }),
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                        decoration:
+                            textInputDecoration.copyWith(hintText: 'Password'),
+                        obscureText: true,
+                        validator: (val) => val.length < 6
+                            ? 'Enter a password 6+ chars long'
+                            : null,
+                        onChanged: (val) {
+                          setState(() => password = val);
+                        }),
+                    SizedBox(height: 20.0),
+                    RaisedButton(
+                        color: Colors.blue[400],
+                        child: Text(
+                          'sign in',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () async {
+                          if (_formKey.currentState.validate()) {
+                            setState(() => loading = true);
+                            dynamic result = await _auth
+                                .signInWithEmailAndPassword(email, password);
+                            if (result == null) {
+                              setState(() {
+                                error =
+                                    'COULD NOT SIGN IN WITH THOSE CREDENTIALS';
+                                loading = false;
+                              });
                             }
-                          }),
-                      SizedBox(
-                        height: 12.0,
-                      ),
-                      Text(
-                        error,
-                        style: TextStyle(color: Colors.red, fontSize: 14.0),
-                      ),
-                    ],
-                  ),
-                )),
+                          }
+                        }),
+                    Container(
+                        //margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: RaisedButton(
+                          onPressed: () => Facebook(),
+                          child: Image.asset('images/fb_login.jpg'),
+                        )),
+
+                    SizedBox(
+                      height: 12.0,
+                    ),
+                    Text(
+                      error,
+                      style: TextStyle(color: Colors.red, fontSize: 14.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           );
   }
 }
