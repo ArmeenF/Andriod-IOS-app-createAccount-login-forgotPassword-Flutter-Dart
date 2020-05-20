@@ -89,12 +89,18 @@ class _SignInState extends State<SignIn> {
                           }
                         }),
                     Container(
-                        //margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         child: RaisedButton(
-                          onPressed: () => Facebook(),
                           child: Image.asset('images/fb_login.jpg'),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Facebook()), //navigate to facebook page
+                            );
+                          },
                         )),
-
                     SizedBox(
                       height: 12.0,
                     ),
