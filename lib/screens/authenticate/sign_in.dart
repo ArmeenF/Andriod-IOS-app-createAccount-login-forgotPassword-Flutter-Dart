@@ -89,10 +89,13 @@ class _SignInState extends State<SignIn> {
                           }
                         }),
                     Container(
+                        padding: const EdgeInsets.all(0.0),
                         margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        child: RaisedButton(
-                          child: Image.asset('images/fb_login.jpg'),
-                          onPressed: () {
+                        child: InkWell(
+                          child: Image.asset(
+                            'images/fb2_login.png',
+                          ),
+                          onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -101,9 +104,9 @@ class _SignInState extends State<SignIn> {
                             );
                           },
                         )),
-                    SizedBox(
-                      height: 12.0,
-                    ),
+                    // SizedBox(
+                    //   height: 20.0,
+                    // ),
                     Text(
                       error,
                       style: TextStyle(color: Colors.red, fontSize: 14.0),

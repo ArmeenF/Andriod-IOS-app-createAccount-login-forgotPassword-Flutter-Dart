@@ -60,29 +60,29 @@ class Home extends StatelessWidget {
                   Colors.deepPurple,
                   Colors.deepPurpleAccent,
                 ])),
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      Material(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        elevation: 10,
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Material(
+                          elevation: 10,
                           child: Image.asset(
                             'images/fakelogo.png',
-                            width: 80,
-                            height: 80,
+                            // width: 85,
+                            height: 55,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Daily Challenge',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            'Daily Challenge',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 20.0),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 )),
             CustomListTile(Icons.person, 'profile', () => {}),
