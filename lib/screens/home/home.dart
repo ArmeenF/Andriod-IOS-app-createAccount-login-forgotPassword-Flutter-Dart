@@ -91,41 +91,42 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: RaisedButton(
-        child: Text('Categories'),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => categories()));
-          // Navigate to second route when tapped.
-        },
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Container(
+            child: RaisedButton(
+              child: Text('Categories'),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => categories()));
+                // Navigate to second route when tapped.
+              },
+            ),
+          ),
+          Container(
+            child: RaisedButton(child: Text('Stats'), onPressed: () {}),
+          ),
+          Container(
+              child: RaisedButton(child: Text('Friends'), onPressed: () {})),
+        ]),
       ),
+    );
+  }
+}
 
-      // body: StaggeredGridView.count(
-      //   crossAxisCount: 3,
-      //   crossAxisSpacing: 10.0,
-      //   mainAxisSpacing: 10.0,
-      //   padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-      //   children: <Widget>[
-      //     ChallengeCategories(Icons.graphic_eq, "Categories", 0xff622F74, () {
-      //       Navigator.push(context,
-      //           MaterialPageRoute(builder: (context) => categories()));
-      //     }),
-      //     ChallengeCategories(
-      //         Icons.graphic_eq, "Statistics", 0xff622F74, () {}),
-      //     ChallengeCategories(
-      //         Icons.graphic_eq, "Activity", 0xff622F74, () {}),
-      //     ChallengeCategories(
-      //         Icons.graphic_eq, "Settings", 0xff622F74, () {}),
-      //   ],
-      //   staggeredTiles: [
-      //     StaggeredTile.extent(3, 100.0),
-      //     StaggeredTile.extent(1, 100.0),
-      //     StaggeredTile.extent(1, 100.0),
-      //     StaggeredTile.extent(1, 100.0),
-      //   ],
-    )
-        // )
-        ;
+class Body extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: RaisedButton(
+        onPressed: () {},
+        child: const Text('Bottom Button!', style: TextStyle(fontSize: 20)),
+        color: Colors.blue,
+        textColor: Colors.black,
+        elevation: 5,
+      ),
+    );
   }
 }
 
