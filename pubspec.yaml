@@ -17,6 +17,8 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  undraw:
+    git: https://github.com/kay4ik/undraw
   flutter:
     sdk: flutter
 

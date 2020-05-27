@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'CategoriesList.dart';
+import 'Categories_Card.dart';
+import 'package:undraw/undraw.dart';
 
 class categories extends StatefulWidget {
   @override
@@ -9,36 +11,55 @@ class categories extends StatefulWidget {
 
 class _categoriesState extends State<categories> {
   List<CategoriesList> categories = [
-    CategoriesList(text: "Health"),
-    CategoriesList(text: "Education"),
-    CategoriesList(text: "Social"),
+    CategoriesList(
+        text: "Health",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.activity_tracker,
+          color: Colors.purple,
+        )),
+    CategoriesList(
+        text: "Education",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.learning,
+          color: Colors.purple,
+        )),
+    CategoriesList(
+        text: "Social",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.social_networking,
+          color: Colors.purple,
+        )),
+    CategoriesList(
+        text: "Mental",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.relaxing_at_home,
+          color: Colors.purple,
+        )),
+    CategoriesList(
+        text: "Diet",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.eating_together,
+          color: Colors.purple,
+        )),
+    CategoriesList(
+        text: "General",
+        image: UnDraw(
+          width: 80,
+          height: 80,
+          illustration: UnDrawIllustration.adventure,
+          color: Colors.purple,
+        )),
   ];
-
-  Widget categoryTemplate(categories) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: <Widget>[
-              Text(categories.text,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.purple,
-                  )),
-              SizedBox(height: 60.0),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  int healthComplet;
-  int educationComplet;
-  int socialComplet;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +69,16 @@ class _categoriesState extends State<categories> {
           title: Text("Categories"),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {});
+          },
           child: Icon(Icons.done),
         ),
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           children: categories
-              .map((categories) => categoryTemplate(categories))
+              .map((categories) => CategoriesCard(categories: categories))
               .toList(),
-        ));
+        )));
   }
 }
