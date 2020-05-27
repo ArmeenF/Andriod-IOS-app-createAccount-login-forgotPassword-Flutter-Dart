@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:thedailychallenge/screens/Categories/Categories.dart';
 import 'package:undraw/undraw.dart';
 import 'CategoriesList.dart';
 
@@ -25,9 +26,16 @@ class CategoriesCard extends StatelessWidget {
               Text('Completed Challenges #'),
             ],
           ),
-          new Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('$categories.completed')]),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text(
+              '${categories.completed}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+              ),
+            ),
+          ),
           new Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
