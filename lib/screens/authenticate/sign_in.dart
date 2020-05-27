@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:thedailychallenge/screens/home/home.dart';
 import 'package:thedailychallenge/services/auth.dart';
 import 'package:thedailychallenge/shared/constants.dart';
 import 'package:thedailychallenge/shared/loading.dart';
-import 'package:thedailychallenge/screens/authenticate/facebook.dart';
+import 'package:http/http.dart' as http;
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -15,6 +18,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _authfb = FirebaseAuth.instance;
   bool loading = false;
 
   //text field state
@@ -22,6 +26,23 @@ class _SignInState extends State<SignIn> {
   String password = '';
   String error = '';
 
+  void _signInFaceBook() async {
+    FacebookLogin facebookLogin = FacebookLogin();
+
+    final result = await facebookLogin.logIn(['email']);
+    final token = result.accessToken.token;
+    final graphResponse = await http.get(
+        'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
+    if (result.status == FacebookLoginStatus.loggedIn) {
+      final Credential = FacebookAuthProvider.getCredential(accessToken: token);
+      _authfb.signInWithCredential(Credential);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Home()),
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return loading
@@ -96,17 +117,9 @@ class _SignInState extends State<SignIn> {
                             'images/fb2_login.png',
                           ),
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Facebook()), //navigate to facebook page
-                            );
+                            _signInFaceBook();
                           },
                         )),
-                    // SizedBox(
-                    //   height: 20.0,
-                    // ),
                     Text(
                       error,
                       style: TextStyle(color: Colors.red, fontSize: 14.0),
