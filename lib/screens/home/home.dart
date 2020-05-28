@@ -92,23 +92,43 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-            child: RaisedButton(
-              child: Text('Categories'),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => categories()));
-                // Navigate to second route when tapped.
-              },
-            ),
-          ),
-          Container(
-            child: RaisedButton(child: Text('Stats'), onPressed: () {}),
-          ),
-          Container(
-              child: RaisedButton(child: Text('Friends'), onPressed: () {})),
-        ]),
+        child: Container(
+          alignment: AlignmentDirectional.center,
+          child: GridView.count(
+              padding: EdgeInsets.all(70),
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              crossAxisCount: 2,
+              crossAxisSpacing: 6,
+              mainAxisSpacing: 6,
+              children: [
+                RaisedButton(
+                  color: Colors.deepPurpleAccent,
+                  textTheme: ButtonTextTheme.primary,
+                  child: Text('Categories'),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => categories()));
+                    // Navigate to second route when tapped.
+                  },
+                ),
+                RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    textTheme: ButtonTextTheme.primary,
+                    child: Text('Stats'),
+                    onPressed: () {}),
+                RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    textTheme: ButtonTextTheme.primary,
+                    child: Text('Friends'),
+                    onPressed: () {}),
+                RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    textTheme: ButtonTextTheme.primary,
+                    child: Text('About'),
+                    onPressed: () {}),
+              ]),
+        ),
       ),
     );
   }

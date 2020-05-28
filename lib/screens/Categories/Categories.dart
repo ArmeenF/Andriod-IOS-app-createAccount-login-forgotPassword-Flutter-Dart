@@ -54,8 +54,8 @@ class _categoriesState extends State<categories> {
     CategoriesList(
         text: "General",
         image: UnDraw(
-          width: 80,
-          height: 80,
+          width: 100,
+          height: 100,
           illustration: UnDrawIllustration.adventure,
           color: Colors.purple,
         )),
@@ -67,12 +67,6 @@ class _categoriesState extends State<categories> {
         appBar: AppBar(
           backgroundColor: Colors.purple[800],
           title: Text("Categories"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {});
-          },
-          child: Icon(Icons.done),
         ),
         body: SingleChildScrollView(
             child: Column(
