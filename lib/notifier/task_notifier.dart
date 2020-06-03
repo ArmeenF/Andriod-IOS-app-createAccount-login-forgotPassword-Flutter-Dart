@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
-import 'package:thedailychallenge/models/tasks.dart';
+import 'package:thedailychallenge/services/database.dart';
 
 class TaskNotifier with ChangeNotifier {
   List<Task> _TaskList = [];
