@@ -1,5 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+class DatabaseService{
+
+  //Collection service
+  final CollectionReference profileData = Firestore.instance.collection("profile");
+}
+
 class Task {
   String id;
   String name;

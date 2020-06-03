@@ -26,23 +26,6 @@ class _SignInState extends State<SignIn> {
   String password = '';
   String error = '';
 
-  void _signInFaceBook() async {
-    FacebookLogin facebookLogin = FacebookLogin();
-
-    final result = await facebookLogin.logIn(['email']);
-    final token = result.accessToken.token;
-    final graphResponse = await http.get(
-        'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
-    if (result.status == FacebookLoginStatus.loggedIn) {
-      final Credential = FacebookAuthProvider.getCredential(accessToken: token);
-      _authfb.signInWithCredential(Credential);
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => Home()),
-      );
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return loading
@@ -109,17 +92,6 @@ class _SignInState extends State<SignIn> {
                             }
                           }
                         }),
-                    Container(
-                        padding: const EdgeInsets.all(0.0),
-                        margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        child: InkWell(
-                          child: Image.asset(
-                            'images/fb2_login.png',
-                          ),
-                          onTap: () {
-                            _signInFaceBook();
-                          },
-                        )),
                     Text(
                       error,
                       style: TextStyle(color: Colors.red, fontSize: 14.0),
