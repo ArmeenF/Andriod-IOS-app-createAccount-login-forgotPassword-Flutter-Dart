@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:thedailychallenge/screens/authenticate/password_reset.dart';
 import 'package:thedailychallenge/screens/home/home.dart';
 import 'package:thedailychallenge/services/auth.dart';
 import 'package:thedailychallenge/shared/constants.dart';
 import 'package:thedailychallenge/shared/loading.dart';
-import 'package:http/http.dart' as http;
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -18,7 +17,6 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  final FirebaseAuth _authfb = FirebaseAuth.instance;
   bool loading = false;
 
   //text field state
@@ -92,6 +90,16 @@ class _SignInState extends State<SignIn> {
                             }
                           }
                         }),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PasswordReset()));
+                      },
+                      child: Text("Forgot password?",
+                          style: TextStyle(color: Colors.white)),
+                    ),
                     Text(
                       error,
                       style: TextStyle(color: Colors.red, fontSize: 14.0),
